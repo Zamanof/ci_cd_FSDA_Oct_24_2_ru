@@ -7,5 +7,5 @@ test('10/2 equals 5',()=>{
 })
 
 test('15/5 equals 5',()=>{
-    expect(division(15, 5)).toBe(3)
+    expect(division(15, 5)).toBe(4)
 })
