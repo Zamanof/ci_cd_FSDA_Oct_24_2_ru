@@ -13,7 +13,7 @@ jobs:
     
     steps:
       - name: Cloning repository
-        uses: actions/chekout@v5
+        uses: actions/checkout@v6
       
       - name: Install Node.js ${{matrix.node-version}}
         uses: actions/setup-node@v6
