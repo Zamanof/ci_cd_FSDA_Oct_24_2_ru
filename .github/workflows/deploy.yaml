@@ -67,11 +67,11 @@ jobs:
           port: 22
 
           script: |
-            if [ ! -d "/app/ci_cd_FSDA_Oct_24_2_ru/.git" ]; then
+            if [ ! -d "/ci_cd_FSDA_Oct_24_2_ru/.git" ]; then
             git clone https://github.com/Zamanof/ci_cd_FSDA_Oct_24_2_ru.git
             fi
 
-            cd /app/ci_cd_FSDA_Oct_24_2_ru
+            cd ci_cd_FSDA_Oct_24_2_ru
             git pull origin main
             docker compose pull
             docker compose down
