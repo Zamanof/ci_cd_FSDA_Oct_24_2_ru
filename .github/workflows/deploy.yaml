@@ -8,6 +8,7 @@ on:
 
 jobs:
   test:
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -35,6 +36,7 @@ jobs:
         run: npm install
   
   docker-image-build-and-deploy:
+    if: github.event_name == 'push'
     needs: test
     runs-on: ubuntu-latest
     
