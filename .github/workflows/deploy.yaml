@@ -52,4 +52,31 @@ jobs:
         run: |
             docker build -t ${{secrets.DOCKER_USERNAME}}/timeapp_front_fsda_oct_24_2_ru ./frontend
             docker push ${{secrets.DOCKER_USERNAME}}/timeapp_front_fsda_oct_24_2_ru
+    
+  deploy-to-aws-vm:
+    needs: docker-image-build-and-deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: AWS ec-2 deploy
+        uses: appleboy/ssh-actions@v1
+        with:
+          host: ${{secrets.AWS_VM_HOST}}
+          username: ${{secrets.AWS_VM_USERNAME}}
+          key: ${{secrets.AWS_VM_SSH_KEY}}
+          port: 22
+
+          script: |
+            if [! "/app/ci_cd_FSDA_Oct_24_2_ru/.git"]; then
+            git clone https://github.com/Zamanof/ci_cd_FSDA_Oct_24_2_ru.git
+            fi
+
+            cd /app/ci_cd_FSDA_Oct_24_2_ru
+            git pull origin main
+            docker compose pull
+            docker compose down
+            docker compose up -d
+            docker image prune -f
+
+
       
