@@ -30,7 +30,7 @@ export default {
   <div class="greetings">
     <h1 class="green">{{ currentTime }}</h1>
     <h3>Click button to save to database</h3>
-    <button @click="saveTime">Сохранить время</button>
+    <button @click="saveTime">Сохранить времяяяяя</button>
     <h3 v-if="savedTimes.length && showSavedTimes">
       Previously saved my times:
     </h3>
@@ -62,7 +62,7 @@ h3 {
 button {
   font-size: 1.5rem;
   margin: 30px;
-  background-color: rgb(235, 136, 8);
+  background-color: rgb(255, 0, 0);
   border-radius: 5px;
   border: none;
   padding: 10px;
