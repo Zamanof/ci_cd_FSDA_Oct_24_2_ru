@@ -59,7 +59,7 @@ jobs:
 
     steps:
       - name: AWS ec-2 deploy
-        uses: appleboy/ssh-actions@v1
+        uses: appleboy/ssh-action@v1
         with:
           host: ${{secrets.AWS_VM_HOST}}
           username: ${{secrets.AWS_VM_USERNAME}}
