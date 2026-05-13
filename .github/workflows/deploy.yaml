@@ -59,7 +59,6 @@ jobs:
     
   deploy-to-aws-vm:
     if: github.event_name == 'workflow_dispatch'
-    needs: docker-image-build-and-deploy
     runs-on: ubuntu-latest
 
     steps:
