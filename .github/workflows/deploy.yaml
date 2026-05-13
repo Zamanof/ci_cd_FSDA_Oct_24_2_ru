@@ -33,12 +33,13 @@ jobs:
         run: npm install
   
   docker-image-build-and-deploy:
+    needs: test
     runs-on: ubuntu-latest
     
     steps:
       - name: Cloning repository
         uses: actions/checkout@v6
-        
+
       - name: Docker Login
         run: echo "${{secrets.DOCKER_PASSWORD}}" | docker login -u "${{secrets.DOCKER_USERNAME}}" --password-stdin
       
