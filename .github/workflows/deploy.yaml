@@ -67,7 +67,7 @@ jobs:
           port: 22
 
           script: |
-            if [ ! "/app/ci_cd_FSDA_Oct_24_2_ru/.git" ]; then
+            if [ ! -d "/app/ci_cd_FSDA_Oct_24_2_ru/.git" ]; then
             git clone https://github.com/Zamanof/ci_cd_FSDA_Oct_24_2_ru.git
             fi
 
