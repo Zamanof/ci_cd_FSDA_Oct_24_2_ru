@@ -3,6 +3,8 @@ name: CI/CD for time-app project
 on:
   push:
     branches: ["main"]
+  workflow_dispatch:
+  
 
 jobs:
   test:
@@ -54,6 +56,7 @@ jobs:
             docker push ${{secrets.DOCKER_USERNAME}}/timeapp_front_fsda_oct_24_2_ru
     
   deploy-to-aws-vm:
+    if: github.event_name == 'workflow_dispatch'
     needs: docker-image-build-and-deploy
     runs-on: ubuntu-latest
 
